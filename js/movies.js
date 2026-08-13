@@ -1,0 +1,35 @@
+const TELUGU_POSTER = "../assets/images/telugu-poster.svg";
+const TELUGU_CLOSEUP = "../assets/images/telugu-closeup.svg";
+
+const MOVIES = [
+  { id: 1, title: "Dookudu", year: 2011, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "👮‍♂️ 😂 💥", charades: true },
+  { id: 2, title: "Eega", year: 2012, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🪰 ❤️ 🔥", charades: true },
+  { id: 3, title: "Gabbar Singh", year: 2012, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "👮‍♂️ 😎 💣", charades: true },
+  { id: 4, title: "Attarintiki Daredi", year: 2013, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🏠 👴 ❤️", charades: true },
+  { id: 5, title: "Manam", year: 2014, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "👨‍👩‍👦 🔁 ❤️", charades: true },
+  { id: 6, title: "Race Gurram", year: 2014, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🏇 😂 🏁", charades: true },
+  { id: 7, title: "Srimanthudu", year: 2015, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🏘️ 💪 ❤️", charades: true },
+  { id: 8, title: "Baahubali: The Beginning", year: 2015, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "⚔️ 👑 🌊", charades: true },
+  { id: 9, title: "Sarrainodu", year: 2016, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "💪 🥊 🔥", charades: true },
+  { id: 10, title: "Khaidi No. 150", year: 2017, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "⛓️ 🌾 💥", charades: true },
+  { id: 11, title: "Baahubali 2: The Conclusion", year: 2017, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "👑 ⚔️ 🐘", charades: true },
+  { id: 12, title: "Arjun Reddy", year: 2017, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "👨‍⚕️ 💔 😡", charades: true },
+  { id: 13, title: "Bharat Ane Nenu", year: 2018, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🧑‍💼 🇮🇳 🎤", charades: true },
+  { id: 14, title: "Rangasthalam", year: 2018, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🌾 👂 🗳️", charades: true },
+  { id: 15, title: "Maharshi", year: 2019, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🎓 🌾 💼", charades: true },
+  { id: 16, title: "Jersey", year: 2019, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🏏 👨‍👦 💙", charades: true },
+  { id: 17, title: "Ala Vaikunthapurramuloo", year: 2020, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🏰 👶 🎶", charades: true },
+  { id: 18, title: "Sarileru Neekevvaru", year: 2020, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🪖 🚂 😂", charades: true },
+  { id: 19, title: "Vakeel Saab", year: 2021, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "⚖️ 👩‍⚖️ 🔥", charades: true },
+  { id: 20, title: "Akhanda", year: 2021, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🕉️ 🔱 💥", charades: true },
+  { id: 21, title: "Pushpa: The Rise", year: 2021, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🌲 🪓 🔥", charades: true },
+  { id: 22, title: "RRR", year: 2022, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🔥 🌊 🤝", charades: true },
+  { id: 23, title: "Karthikeya 2", year: 2022, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🦚 🛕 🔎", charades: true },
+  { id: 24, title: "Sita Ramam", year: 2022, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "💌 🪖 ❤️", charades: true },
+  { id: 25, title: "Waltair Veerayya", year: 2023, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "⚓ 😎 💥", charades: true },
+  { id: 26, title: "Dasara", year: 2023, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🍻 🚂 🔥", charades: true },
+  { id: 27, title: "Salaar", year: 2023, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "⛏️ 👑 💣", charades: true },
+  { id: 28, title: "Hanu-Man", year: 2024, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🐒 ⚡ 🦸", charades: true },
+  { id: 29, title: "Kalki 2898 AD", year: 2024, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🚀 🛕 ⚔️", charades: true },
+  { id: 30, title: "Pushpa 2: The Rule", year: 2024, category: "Telugu", poster: TELUGU_POSTER, closeup: TELUGU_CLOSEUP, emojis: "🌲 👑 🔥", charades: true }
+];

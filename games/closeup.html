@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Close-Up Challenge | Movie Game Hub</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/games.css">
+</head>
+<body>
+  <main class="game-page" data-game-root>
+    <section class="game-topbar">
+      <a class="brand" href="../dashboard.html">Movie Game Hub</a>
+      <span>Close-Up Challenge</span>
+    </section>
+    <aside class="scoreboard" data-scoreboard></aside>
+    <section class="play-area">
+      <p class="eyebrow" data-current-team>Current Turn</p>
+      <h1>Close-Up Challenge</h1>
+      <p class="progress" data-progress></p>
+      <img class="poster-art closeup-art" data-question-image alt="Movie close-up clue">
+      <form class="guess-form" data-guess-form>
+        <input data-answer-input type="text" placeholder="Enter movie name" autocomplete="off">
+        <button class="button primary" type="submit">Guess</button>
+      </form>
+      <div class="feedback" data-feedback></div>
+    </section>
+  </main>
+  <script src="../js/movies.js"></script>
+  <script src="../js/shuffle.js"></script>
+  <script src="../js/gameEngine.js"></script>
+  <script src="../js/scoreboard.js"></script>
+  <script src="../js/quizGame.js"></script>
+  <script src="../js/closeup.js"></script>
+</body>
+</html>

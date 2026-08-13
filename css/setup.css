@@ -1,0 +1,88 @@
+.setup-page {
+  display: grid;
+  place-items: start center;
+}
+
+.setup-panel {
+  width: min(640px, 100%);
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+form {
+  display: grid;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.setup-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+fieldset {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+legend {
+  grid-column: 1 / -1;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.mode-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffaf7;
+  cursor: pointer;
+}
+
+.team-fields {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  font-weight: 800;
+}
+
+input[type="text"] {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.form-error {
+  min-height: 22px;
+  margin: 0;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+@media (max-width: 560px) {
+  .setup-panel {
+    padding: 20px;
+  }
+
+  fieldset {
+    grid-template-columns: 1fr;
+  }
+}

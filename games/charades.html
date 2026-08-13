@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dumb Charades | Movie Game Hub</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/games.css">
+</head>
+<body>
+  <main class="game-page charades-page" data-game-root>
+    <section class="game-topbar">
+      <a class="brand" href="../dashboard.html">Movie Game Hub</a>
+      <span>Dumb Charades</span>
+    </section>
+
+    <aside class="scoreboard" data-scoreboard></aside>
+
+    <section class="play-area charades-area">
+      <p class="eyebrow" data-ready-label>Get Ready</p>
+      <h1 data-charades-team>Team</h1>
+      <div class="charades-meta">
+        <div class="timer" data-timer>60</div>
+        <p class="progress" data-progress>Movie 1 / 30</p>
+      </div>
+      <div class="movie-title" data-movie-title>Press Start Round</div>
+      <p class="gesture-hint" data-gesture-hint>Flip phone downward for Correct. Flip upward for Skip. Buttons stay available too.</p>
+      <div class="feedback" data-feedback></div>
+      <div class="action-row">
+        <button class="button secondary" data-enable-motion hidden>Enable Tilt Controls</button>
+        <button class="button primary" data-start-round>Start Round</button>
+        <button class="button success" data-correct hidden>Correct</button>
+        <button class="button warning" data-skip hidden>Skip</button>
+      </div>
+    </section>
+    <div class="answer-burst" data-answer-burst aria-hidden="true"></div>
+  </main>
+
+  <script src="../js/movies.js"></script>
+  <script src="../js/shuffle.js"></script>
+  <script src="../js/gameEngine.js"></script>
+  <script src="../js/scoreboard.js"></script>
+  <script src="../js/charades.js"></script>
+</body>
+</html>
