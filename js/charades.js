@@ -15,8 +15,10 @@ const readyLabel = document.querySelector("[data-ready-label]");
 const enableMotionButton = document.querySelector("[data-enable-motion]");
 const gestureHint = document.querySelector("[data-gesture-hint]");
 const burst = document.querySelector("[data-answer-burst]");
+const roundCount = document.querySelector("[data-round-count]");
+const deckCount = document.querySelector("[data-deck-count]");
 
-const ROUND_SECONDS = 60;
+const ROUND_SECONDS = Math.max(30, Math.min(300, Number(savedSetup.roundSeconds) || 120));
 const TILT_THRESHOLD = 45;
 const TILT_RESET_THRESHOLD = 18;
 const TILT_COOLDOWN_MS = 1100;
@@ -24,6 +26,7 @@ let secondsLeft = ROUND_SECONDS;
 let timerId = null;
 let roundActive = false;
 let completedRounds = 0;
+let moviesShownThisRound = 0;
 let motionEnabled = false;
 let lastTiltActionAt = 0;
 let gestureArmed = true;
@@ -32,10 +35,18 @@ let audioContext = null;
 function renderCharades() {
   renderScoreboard(state);
   teamHeading.textContent = getCurrentTeam(state).name;
-  progress.textContent = `Movie ${getProgressText(state)}`;
+  progress.textContent = roundActive ? `${moviesShownThisRound} shown this round` : `${formatClock(ROUND_SECONDS)} per team`;
+  roundCount.textContent = `${moviesShownThisRound} movies shown`;
+  deckCount.textContent = `${MOVIES.length} Telugu movies loaded`;
 
   const movie = getCurrentMovie(state);
   movieTitle.textContent = movie ? movie.title : "No more movies";
+}
+
+function formatClock(totalSeconds) {
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${minutes}:${seconds.toString().padStart(2, "0")}`;
 }
 
 function setRoundButtons(isActive) {
@@ -45,22 +56,19 @@ function setRoundButtons(isActive) {
 }
 
 function startRound() {
-  if (state.finished) {
-    goToResults(state);
-    return;
-  }
-
   secondsLeft = ROUND_SECONDS;
+  moviesShownThisRound = 1;
   roundActive = true;
+  state.finished = false;
   readyLabel.textContent = "Act It Out";
   feedback.textContent = "";
-  timerEl.textContent = secondsLeft;
+  timerEl.textContent = formatClock(secondsLeft);
   setRoundButtons(true);
   renderCharades();
 
   timerId = window.setInterval(() => {
     secondsLeft -= 1;
-    timerEl.textContent = secondsLeft;
+    timerEl.textContent = formatClock(secondsLeft);
 
     if (secondsLeft <= 0) {
       endRound();
@@ -81,10 +89,12 @@ function endRound() {
   }
 
   switchTeam(state);
+  moviesShownThisRound = 0;
   readyLabel.textContent = "Get Ready";
   feedback.textContent = `${getCurrentTeam(state).name}, get ready!`;
   movieTitle.textContent = "Press Start Round";
-  progress.textContent = `Movie ${getProgressText(state)}`;
+  progress.textContent = `${formatClock(ROUND_SECONDS)} per team`;
+  roundCount.textContent = "0 movies shown";
   teamHeading.textContent = getCurrentTeam(state).name;
   renderScoreboard(state);
 }
@@ -106,11 +116,17 @@ function handleAnswer(isCorrect) {
     showBurst("Skip", "skip");
   }
 
-  advanceQuestion(state);
+  advanceTimedMovie(state);
+  moviesShownThisRound += 1;
   renderCharades();
+}
 
-  if (state.finished) {
-    endRound();
+function advanceTimedMovie(state) {
+  state.currentIndex += 1;
+
+  if (state.currentIndex >= state.questionOrder.length) {
+    state.questionOrder = shuffleItems(MOVIES);
+    state.currentIndex = 0;
   }
 }
 
@@ -196,7 +212,10 @@ enableMotionButton.addEventListener("click", enableMotionControls);
 
 renderScoreboard(state);
 teamHeading.textContent = getCurrentTeam(state).name;
-progress.textContent = `Movie ${getProgressText(state)}`;
+timerEl.textContent = formatClock(ROUND_SECONDS);
+progress.textContent = `${formatClock(ROUND_SECONDS)} per team`;
+roundCount.textContent = "0 movies shown";
+deckCount.textContent = `${MOVIES.length} Telugu movies loaded`;
 
 if ("DeviceOrientationEvent" in window) {
   enableMotionButton.hidden = false;

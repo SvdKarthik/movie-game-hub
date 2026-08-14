@@ -42,6 +42,15 @@
           <input id="teamTwo" type="text" value="Team Class" maxlength="24">
         </div>
 
+        <div class="timer-fields" data-timer-fields hidden>
+          <label for="roundSeconds">Round Timer</label>
+          <div class="timer-control">
+            <input id="roundSeconds" type="range" min="30" max="300" step="15" value="120">
+            <strong data-timer-preview>2:00</strong>
+          </div>
+          <p>Each team gets this much time. The movie deck keeps going, so fast teams can guess more.</p>
+        </div>
+
         <p class="form-error" data-form-error role="alert"></p>
         <div class="action-row">
           <button class="button primary" type="submit">Start Game</button>

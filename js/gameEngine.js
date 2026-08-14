@@ -121,7 +121,7 @@ function saveSetup(setup) {
 }
 
 function getSavedSetup() {
-  const fallback = { mode: "team", teamNames: ["Team 1", "Team 2"] };
+  const fallback = { mode: "team", teamNames: ["Team 1", "Team 2"], roundSeconds: 120 };
   const raw = sessionStorage.getItem("movieGameHubSetup");
 
   if (!raw) return fallback;
@@ -149,6 +149,16 @@ function goToResults(state) {
 function renderResults(state) {
   const app = document.querySelector("[data-game-root]");
   const winner = determineWinner(state.teams);
+  const replayActions = state.gameKey === "charades"
+    ? `
+        <a class="button primary" href="${getGamePath(state.gameKey)}">Play Again</a>
+        <a class="button secondary" href="../setup.html?game=charades">Change Timer</a>
+        <a class="button secondary" href="../dashboard.html">Back to Dashboard</a>
+      `
+    : `
+        <a class="button primary" href="${getGamePath(state.gameKey)}">Play Again</a>
+        <a class="button secondary" href="../dashboard.html">Back to Dashboard</a>
+      `;
   const rows = state.teams
     .map(
       (team) => `
@@ -171,8 +181,7 @@ function renderResults(state) {
       <h1>${winner.message}</h1>
       <div class="result-grid">${rows}</div>
       <div class="action-row">
-        <a class="button primary" href="${getGamePath(state.gameKey)}">Play Again</a>
-        <a class="button secondary" href="../dashboard.html">Back to Dashboard</a>
+        ${replayActions}
       </div>
     </section>
   `;
