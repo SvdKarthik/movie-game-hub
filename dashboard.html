@@ -7,38 +7,116 @@
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/dashboard.css">
 </head>
-<body>
-  <header class="app-header">
-    <a class="brand" href="index.html">Movie Game Hub</a>
-  </header>
+<body class="hub-body">
+  <main class="hub-shell">
+    <aside class="hub-sidebar">
+      <a class="hub-logo" href="index.html" aria-label="Movie Game Hub home">
+        <span class="logo-mark">MG</span>
+        <span>Movie<br><strong>Game</strong><br>Hub</span>
+      </a>
 
-  <main class="page">
-    <section class="page-heading">
-      <p class="eyebrow">Telugu Movie Guessing</p>
-      <h1>Pick a Game</h1>
-    </section>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a class="is-active" href="dashboard.html"><span>H</span> Home</a>
+        <a href="setup.html?game=charades"><span>C</span> Charades</a>
+        <a href="setup.html?game=poster"><span>P</span> Posters</a>
+        <a href="setup.html?game=closeup"><span>Z</span> Close-Up</a>
+        <a href="setup.html?game=emoji"><span>E</span> Emoji</a>
+      </nav>
 
-    <section class="game-grid" aria-label="Available games">
-      <a class="game-card charades-card" href="setup.html?game=charades">
-        <span class="game-icon">🎭</span>
-        <h2>Dumb Charades</h2>
-        <p>Android tilt controls ready.</p>
-      </a>
-      <a class="game-card poster-card" href="setup.html?game=poster">
-        <span class="game-icon">🖼️</span>
-        <h2>Guess the Poster</h2>
-        <p>Can you recognize the movie?</p>
-      </a>
-      <a class="game-card closeup-card" href="setup.html?game=closeup">
-        <span class="game-icon">🔍</span>
-        <h2>Close-Up Challenge</h2>
-        <p>Guess from a small detail.</p>
-      </a>
-      <a class="game-card emoji-card" href="setup.html?game=emoji">
-        <span class="game-icon">🧩</span>
-        <h2>Emoji Movie Challenge</h2>
-        <p>Decode the emojis.</p>
-      </a>
+      <div class="player-card">
+        <div class="avatar">MB</div>
+        <div>
+          <strong>Movie Buff</strong>
+          <span>Telugu night ready</span>
+        </div>
+      </div>
+    </aside>
+
+    <section class="hub-main">
+      <header class="hub-topbar">
+        <label class="search-box">
+          <span aria-hidden="true"></span>
+          <input type="search" placeholder="Search movies, games..." aria-label="Search movies and games">
+        </label>
+        <div class="top-actions" aria-label="Profile stats">
+          <span>60 Movies</span>
+          <span>2 Teams</span>
+          <span>Timed</span>
+        </div>
+      </header>
+
+      <section class="cinema-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Telugu Movie Guessing</p>
+          <h1><span>Movie</span><strong>Game</strong><span>Hub</span></h1>
+          <p>Where Telugu cinema meets fast team battles. Pick Dumb Charades, flip the phone, and race the timer.</p>
+          <a class="button primary" href="setup.html?game=charades">Play Charades</a>
+        </div>
+        <div class="hero-stage" aria-hidden="true">
+          <div class="neon-ring"></div>
+          <div class="clapper">
+            <span></span>
+            <strong>Movie<br>Game<br>Hub</strong>
+          </div>
+          <div class="popcorn"></div>
+          <div class="controller"></div>
+        </div>
+      </section>
+
+      <section class="game-grid" aria-label="Available games">
+        <a class="game-card charades-card" href="setup.html?game=charades">
+          <span class="game-icon icon-charades"></span>
+          <h2>Dumb Charades</h2>
+          <p>Android tilt controls, adjustable timer, 60 Telugu titles.</p>
+          <em>Play now</em>
+        </a>
+        <a class="game-card poster-card" href="setup.html?game=poster">
+          <span class="game-icon icon-poster"></span>
+          <h2>Guess the Poster</h2>
+          <p>Creative clue posters for Telugu movie guessing.</p>
+          <em>Start</em>
+        </a>
+        <a class="game-card closeup-card" href="setup.html?game=closeup">
+          <span class="game-icon icon-closeup"></span>
+          <h2>Close-Up Challenge</h2>
+          <p>Spot the movie from a stylized close-up clue.</p>
+          <em>Try it</em>
+        </a>
+        <a class="game-card emoji-card" href="setup.html?game=emoji">
+          <span class="game-icon icon-emoji"></span>
+          <h2>Emoji Challenge</h2>
+          <p>A lightweight mode kept ready for the next upgrade.</p>
+          <em>Open</em>
+        </a>
+      </section>
+
+      <section class="hub-lower">
+        <article class="featured-panel">
+          <div class="panel-heading">
+            <h2>Featured Telugu Hits</h2>
+            <a href="setup.html?game=charades">View all</a>
+          </div>
+          <div class="featured-strip">
+            <div class="poster-tile tile-red"><strong>RRR</strong><span>2022</span></div>
+            <div class="poster-tile tile-gold"><strong>Pushpa</strong><span>2021</span></div>
+            <div class="poster-tile tile-blue"><strong>Kalki</strong><span>2024</span></div>
+            <div class="poster-tile tile-teal"><strong>Salaar</strong><span>2023</span></div>
+          </div>
+        </article>
+
+        <article class="leaderboard-panel">
+          <div class="panel-heading">
+            <h2>Leaderboard</h2>
+            <a href="setup.html?game=charades">Play</a>
+          </div>
+          <ol>
+            <li><span>CineMaster</span><strong>24,560</strong></li>
+            <li><span>ReelGamer</span><strong>18,975</strong></li>
+            <li><span>MovieBuff</span><strong>14,230</strong></li>
+            <li><span>PopcornKing</span><strong>9,870</strong></li>
+          </ol>
+        </article>
+      </section>
     </section>
   </main>
 </body>
